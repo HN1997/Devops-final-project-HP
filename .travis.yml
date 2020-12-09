@@ -9,3 +9,10 @@ script:
 - npm install
 - echo 'Testing'
 - npm test
+deploy:
+  provider: heroku
+  api_key:
+    secure: e89d24fb695a9f525dc880d187083c22780461b1
+  app: ece-userapi
+  on:
+    repo: sergkudinov/ece-userapi
