@@ -16,9 +16,8 @@
 
 * Clone this repository, from your local machine:
   ```
-  git clone https://github.com/HN1997/Devops-Project.git 
-  cd Devops-Projet
-  cd RedisApp
+  git clone gh repo clone HN1997/Devops-final-project-HP 
+  cd Devops-final-project-HP
   ```
 * Install packages and run the app
   ```
@@ -31,7 +30,7 @@
 ## 3 - All the necessary links with the platforms and tools integrated:
 
 * Travis CI:
-  You can see that that travis is well integrated to the project with the green check image next to the commit button, or you can check that here : https://github.com/HN1997/Devops-Final-Project/runs/1506829912
+  You can see that that travis is well integrated to the project with the green check image next to the commit button.
 
 * Heroku : You can open the application by going to this link:
   https://devops-final.herokuapp.com/ 
