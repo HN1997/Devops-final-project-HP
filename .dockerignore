@@ -1,0 +1,6 @@
+node_modules
+Dockerfile
+CHANGELOG.md 
+node_modules
+.travis.yml
+README.md
