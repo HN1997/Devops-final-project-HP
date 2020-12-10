@@ -12,6 +12,9 @@
 * The image is pushed to Docker Hub with the command : ```docker push hn0402/devops_final_docker```
 * We have a .dockerignore to ignore all unnecessary files
 
+5. Make container orchestration using Docker Compose 
+* We added docker-compose.yml file which allows us to start our application directly in a container, just type this command (assuming docker-compose is installed) : ```docker-compose up```
+
 ## 2 - Instructions
 
 * Clone this repository, from your local machine:
