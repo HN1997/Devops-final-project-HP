@@ -1,7 +1,7 @@
 ## 1 - List of all the work performed
 
 1. Create a web application 
-* Not yet done 
+* *Not yet done* 
 
 2. Apply CI/CD pipeline
 * We have used Tracis CI which is building successfully our app (.travis.yml)
