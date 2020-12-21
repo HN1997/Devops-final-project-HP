@@ -35,8 +35,8 @@
 * Travis CI:
   You can see that that travis is well integrated to the project with the green check image next to the commit button.
 
-* Heroku : You can open the application by going to this link:
-  https://devops-final.herokuapp.com/ 
+* Heroku : You can open the application by going to this link (You can't interact with it because we didn't setup redis in Heroku):
+  https://devops-nodejs-hugopierre.herokuapp.com/ 
 
 * Docker Hub : You can check our image pushed to Docker Hub on this link : https://hub.docker.com/repository/docker/hn0402/devops_final_docker
 
