@@ -1,8 +1,6 @@
 const express = require('express')
-const userRouter = require('./routes/user')
 const bodyParser = require('body-parser')
 const exphbs = require('express-handlebars');
-const methodOverride = require('method-override');
 
 //Init app 
 const app = express()
@@ -75,7 +73,7 @@ app.post('/user/add', (req, res) => {
 });
 
 // Delete User
-app.delete('/user/delete/:id', (req, res) => {
+app.post('/user/delete/:id', (req, res) => {
     client.del(req.params.id, (err, reply) =>{
         if(err){
             res.status(404);

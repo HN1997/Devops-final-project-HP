@@ -135,7 +135,7 @@ describe('User API', () => {
         //Try to delete it if it exists
         it("should delete a user", (done) => {
             chai.request(server)
-             .delete('/user/delete/' + 10)
+             .post('/user/delete/' + 10)
              .end((err, response) => {
                 response.should.have.status(201);
                 done();
@@ -144,7 +144,7 @@ describe('User API', () => {
         //If the user doesn't exist
         it("should send an error if user does not exist", (done) => {
             chai.request(server)
-             .delete('/user/delete/' + 100)
+             .post('/user/delete/' + 100)
              .end((err, response) => {
                 response.should.have.status(404);
                 done();
