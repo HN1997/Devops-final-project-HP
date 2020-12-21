@@ -21,19 +21,18 @@
 * We added docker-compose.yml file which allows us to start our application directly in a container, just type this command (assuming docker-compose is installed) : ```docker-compose up```
 
 ## 2 - Instructions
+1. Installation
+  1. [Install NodeJS](https://nodejs.org/en/download/)
+  2. [Install Redis](https://redis.io/download)
+  3. 
+  Go to the root directory of the application (where `package.json` file located) and run:
+  ```
+  npm install 
+  ```
 
-* Clone this repository, from your local machine:
-  ```
-  git clone gh repo clone HN1997/Devops-final-project-HP 
-  cd Devops-final-project-HP
-  ```
-* Install packages and run the app
-  ```
-  npm install
-  npm start
-  ```
-  And open your browser and search for: http://localhost:3000.
-  *Put description of the application, how to use it*  
+2. Usage
+
+3. Testing 
 
 ## 3 - All the necessary links with the platforms and tools integrated:
 
