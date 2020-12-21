@@ -22,10 +22,9 @@
 
 ## 2 - Instructions
 1. Installation
-  1. [Install NodeJS](https://nodejs.org/en/download/)
-  2. [Install Redis](https://redis.io/download)
-  3. 
-  Go to the root directory of the application (where `package.json` file located) and run:
+  * [Install NodeJS](https://nodejs.org/en/download/)
+  * [Install Redis](https://redis.io/download)
+  * Go to the root directory of the application (where `package.json` file located) and run:
   ```
   npm install 
   ```
