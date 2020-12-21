@@ -24,7 +24,9 @@ app.use(bodyParser.json())
 app.engine('handlebars', exphbs({defaultLayout:'main'}));
 app.set('view engine', 'handlebars');
 
-app.get('/', (req, res) => res.send('Hello World!'))
+app.get('/', (req, res) => {
+    res.status(200).render('searchusers');
+});
 
 //Search processing
 app.post('/user/search', (req, res) => {
