@@ -26,7 +26,7 @@ app.set('view engine', 'handlebars');
 
 app.get('/', (req, res) => res.send('Hello World!'))
 
-app.use('/user', userRouter)
+//app.use('/user', userRouter)
 
 const server = app.listen(port, (err) => {
   if (err) throw err
