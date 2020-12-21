@@ -20,15 +20,7 @@ client.on("error", (err) => {
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 
-//Set up View Engine
-app.engine('handlebars', exphbs({defaultLayout:'main'}));
-app.set('view engine', 'handlebars');
-
-//Method override
-app.use(methodOverride('_method'));
-
-//Search Page
-app.get('/', (req,res) => res.send("hello world"));
+app.get('/', (req,res) => res.send('hello world'));
 
 //Listening on port
 const server =  app.listen(PORT, function(){
