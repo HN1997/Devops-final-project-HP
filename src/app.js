@@ -28,12 +28,12 @@ app.get('/', (req, res) => {
     res.status(200).render('searchusers');
 });
 
-//Search processing
+//Get a user
 app.post('/user/search', (req, res) => {
     let id= req.body.id;
     client.hgetall(id, (err, obj) => {
         if(!obj){
-            res.render('searchusers', {
+            res.status(404).render('searchusers', {
                 error: 'User does not exist'
             });
         }else {
@@ -67,7 +67,7 @@ app.post('/user/add', (req, res) => {
         if(err){
             console.log(err);
         } else {
-            console.log(reply);
+            //console.log(reply);
             res.status(200);
             res.redirect('/');
         }
@@ -78,10 +78,16 @@ app.post('/user/add', (req, res) => {
 app.delete('/user/delete/:id', (req, res) => {
     client.del(req.params.id, (err, reply) =>{
         if(err){
+            res.status(404);
             console.log(err);
         }
+        if(reply){
+            res.status(201);
+        } else {
+            res.status(404);
+        }
     });
-    res.status(201).render('searchusers');
+    res.render('searchusers');
 });
 
 // Update User
@@ -91,19 +97,34 @@ app.post('/user/update/:id', (req, res) => {
     let phone = req.body.phone;
     let email = req.body.email;
 
-    client.hmset(req.params.id, [
-        'first_name', first_name,
-        'last_name', last_name,
-        'email', email,
-        'phone', phone,
-    ], (err, reply) => {
-        if(err){
-            console.log(err);
-        } else {
-            console.log(reply)
-            res.status(201).redirect('/');
+    //Get the user first
+    let id= req.params.id;
+    client.hgetall(id, (err, obj) => {
+        //If user does not exist
+        if(!obj){
+            res.status(404).render('searchusers', {
+                error: 'User does not exist'
+            });
         }
-    });
+        //If user does exist
+        else {
+            client.hmset(id, [
+                'first_name', first_name,
+                'last_name', last_name,
+                'email', email,
+                'phone', phone,
+            ], (err, reply) => {
+                if(err){
+                    console.log(err);
+                } 
+                if(reply){
+                    res.status(200).redirect('/');
+                } else {
+                    res.status(404).redirect('/');
+                }
+            });
+        }
+    })
 });
 
 //app.use('/user', userRouter)
