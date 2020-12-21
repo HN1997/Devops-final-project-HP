@@ -5,7 +5,7 @@ const methodOverride = require('method-override');
 const redis = require('redis');
 
 //Create Redis client
-let client = redis.createClient();
+let client = require('./dbClient');
 client.on('connect', () => {
     console.log('Connected to redis!');
 })
@@ -29,7 +29,7 @@ app.use(methodOverride('_method'));
 
 //Search Page
 app.get('/', (req, res) => {
-    res.render('searchusers');
+    res.status(200).render('searchusers');
 });
 
 //Search processing
@@ -42,7 +42,7 @@ app.post('/user/search', (req, res) => {
             });
         }else {
             obj.id = id;
-            res.render('details', {
+            res.status(201).render('details', {
                 user: obj
             });
         }
@@ -72,6 +72,7 @@ app.post('/user/add', (req, res) => {
             console.log(err);
         } else {
             console.log(reply);
+            res.status(200);
             res.redirect('/');
         }
     });
@@ -79,8 +80,12 @@ app.post('/user/add', (req, res) => {
 
 // Delete User
 app.delete('/user/delete/:id', (req, res) => {
-    client.del(req.params.id);
-    res.redirect("/");
+    client.del(req.params.id, (err, reply) =>{
+        if(err){
+            console.log(err);
+        }
+    });
+    res.status(201).render('searchusers');
 });
 
 // Update User
@@ -99,13 +104,13 @@ app.post('/user/update/:id', (req, res) => {
         if(err){
             console.log(err);
         } else {
-            console.log(reply);
-            res.redirect('/');
+            console.log(reply)
+            res.status(201).redirect('/');
         }
     });
 });
 
 //Listening on port
-app.listen(PORT, function(){
+module.exports = app.listen(PORT, function(){
     console.log('Server started on port ' + PORT);
 })
