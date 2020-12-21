@@ -26,6 +26,23 @@ app.set('view engine', 'handlebars');
 
 app.get('/', (req, res) => res.send('Hello World!'))
 
+//Search processing
+app.post('/user/search', (req, res) => {
+    let id= req.body.id;
+    client.hgetall(id, (err, obj) => {
+        if(!obj){
+            res.render('searchusers', {
+                error: 'User does not exist'
+            });
+        }else {
+            obj.id = id;
+            res.status(201).render('details', {
+                user: obj
+            });
+        }
+    })
+});
+
 //app.use('/user', userRouter)
 
 const server = app.listen(port, (err) => {
