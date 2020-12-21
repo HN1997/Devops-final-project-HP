@@ -3,6 +3,7 @@ const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const redis = require('redis');
+const userRouter = require('./routes/user');
 
 //Init app 
 const app = express();
@@ -21,6 +22,8 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 
 app.get('/', (req,res) => res.send('hello world'));
+
+app.use('/user', userRouter);
 
 //Listening on port
 const server =  app.listen(PORT, function(){
