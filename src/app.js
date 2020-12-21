@@ -1,6 +1,8 @@
 const express = require('express')
 const userRouter = require('./routes/user')
 const bodyParser = require('body-parser')
+const exphbs = require('express-handlebars');
+const methodOverride = require('method-override');
 
 const app = express()
 const port = process.env.PORT || 3000
