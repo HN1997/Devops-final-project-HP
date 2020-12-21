@@ -6,8 +6,8 @@ const redis = require('redis');
 
 //Create Redis client
 let client = require('./dbClient');
-client.on('connect', () => {
-    console.log('Connected to redis!');
+client.on("error", (err) => {
+    console.error(err)
 })
 
 // Setting port
@@ -29,7 +29,7 @@ app.use(methodOverride('_method'));
 
 //Search Page
 app.get('/', (req, res) => {
-    app.get('/', (req, res) => res.send('Hello World!'))
+    res.status(200).render('searchusers');
 });
 
 //Search processing
