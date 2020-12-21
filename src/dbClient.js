@@ -5,6 +5,7 @@ const config = configure()
 var client = redis.createClient({
   host: config.redis.host,
   port: config.redis.port,
+  password: "redis",
   retry_strategy: () => {
     return new Error("Retry time exhausted")
   }

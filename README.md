@@ -24,14 +24,28 @@
 1. Installation
   * [Install NodeJS](https://nodejs.org/en/download/)
   * [Install Redis](https://redis.io/download)
+  * Clone the project 
+  ```
+  git clone https://github.com/HN1997/Devops-final-project-HP.git
+  ```
   * Go to the root directory of the application (where `package.json` file located) and run:
   ```
   npm install 
   ```
+  * [Install Docker](https://www.docker.com/products/docker-desktop)
+  * [Install docker-compose](https://docs.docker.com/compose/install/)
+  * You can create an image of the application by running : 
+  ```
+  docker build -t hn0402/devops_final_docker .
+  ```
+  Now, you can check that the image has been successfully built by running ```docker images```
 
-2. Usage
-
-3. Testing 
+2. Usage and Testing
+  * In the root directory of the application, you can run : 
+  ```
+  npm start
+  ```
+  In the app, you can add a user, find a user, update and delete a user (not beautiful but you can easy understand how to perform those CRUD operations)
 
 ## 3 - All the necessary links with the platforms and tools integrated:
 
