@@ -43,6 +43,67 @@ app.post('/user/search', (req, res) => {
     })
 });
 
+//Add User Page
+app.get('/user/add', (req, res) => {
+    res.render('adduser');
+});
+
+// Proccess Add User Page
+app.post('/user/add', (req, res) => {
+    let id = req.body.id;
+    let first_name = req.body.first_name;
+    let last_name = req.body.last_name;
+    let phone = req.body.phone;
+    let email = req.body.email;
+
+    client.hmset(id, [
+        'first_name', first_name,
+        'last_name', last_name,
+        'email', email,
+        'phone', phone,
+    ],(err, reply) => {
+        if(err){
+            console.log(err);
+        } else {
+            console.log(reply);
+            res.status(200);
+            res.redirect('/');
+        }
+    });
+});
+
+// Delete User
+app.delete('/user/delete/:id', (req, res) => {
+    client.del(req.params.id, (err, reply) =>{
+        if(err){
+            console.log(err);
+        }
+    });
+    res.status(201).render('searchusers');
+});
+
+// Update User
+app.post('/user/update/:id', (req, res) => {
+    let first_name = req.body.first_name;
+    let last_name = req.body.last_name;
+    let phone = req.body.phone;
+    let email = req.body.email;
+
+    client.hmset(req.params.id, [
+        'first_name', first_name,
+        'last_name', last_name,
+        'email', email,
+        'phone', phone,
+    ], (err, reply) => {
+        if(err){
+            console.log(err);
+        } else {
+            console.log(reply)
+            res.status(201).redirect('/');
+        }
+    });
+});
+
 //app.use('/user', userRouter)
 
 const server = app.listen(port, (err) => {
