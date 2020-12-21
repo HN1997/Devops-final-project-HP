@@ -1,11 +1,16 @@
 ## 1 - List of all the work performed
 
 1. Create a web application 
-* *Not yet done* 
+* We have built our own application using nodejs and redis with CRUD user functionalities.
+* We have implemented unit tests for each CRUD operations : 
+  * Creating a user 
+  * Get a user (check if he exists or not)
+  * Updating a user (check if he exists or not)
+  * Deleting a user (check if he exists or not)
 
 2. Apply CI/CD pipeline
-* We have used Tracis CI which is building successfully our app (.travis.yml)
-* We have used Heroku which deploys our app (and put the reference in .travis.yml).
+* We have used Travis CI which is building successfully our app (.travis.yml) each time we push to the repository.
+* We have used Heroku which deploys our app (and put the reference in .travis.yml) after Travis run successfully.
 
 4. Build Docker image of your application
 * We have a Dockerfile for building the project, and we can build it with the command : ```docker build -t hn0402/devops_final_docker .```
