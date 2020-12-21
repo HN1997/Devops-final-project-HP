@@ -16,13 +16,13 @@ client.on("error", (err) => {
     console.error(err)
 })
 
-//Set up View Engine
-app.engine('handlebars', exphbs({defaultLayout:'main'}));
-app.set('view engine', 'handlebars');
-
 //Body-parser
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
+
+//Set up View Engine
+app.engine('handlebars', exphbs({defaultLayout:'main'}));
+app.set('view engine', 'handlebars');
 
 //Method override
 app.use(methodOverride('_method'));
