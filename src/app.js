@@ -7,7 +7,7 @@ const methodOverride = require('method-override');
 const app = express()
 const port = process.env.PORT || 3000
 
-const client = require('./dbClient')
+let client = require('./dbClient')
 client.on("error", (err) => {
   console.error(err)
 })
