@@ -4,18 +4,25 @@ const bodyParser = require('body-parser')
 const exphbs = require('express-handlebars');
 const methodOverride = require('method-override');
 
+//Init app 
 const app = express()
+// Setting port
 const port = process.env.PORT || 3000
 
-let client = require('./dbClient')
+const client = require('./dbClient')
 client.on("error", (err) => {
   console.error(err)
 })
 
+//Body-parser
 app.use(bodyParser.urlencoded({
   extended: false
 }))
 app.use(bodyParser.json())
+
+//Set up View Engine
+app.engine('handlebars', exphbs({defaultLayout:'main'}));
+app.set('view engine', 'handlebars');
 
 app.get('/', (req, res) => res.send('Hello World!'))
 
