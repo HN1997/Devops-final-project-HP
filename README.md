@@ -48,7 +48,7 @@
   In the app, you can add a user, find a user, update and delete a user (not beautiful but you can easily understand how to perform those CRUD operations)
   * You can run the same application with the command:
   ```
-  docker-compose up --build docker images
+  docker-compose up --build
   ```
   And now open your web browser and go to [localhost:4001](localhost:4001)
 
