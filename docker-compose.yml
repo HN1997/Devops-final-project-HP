@@ -3,7 +3,7 @@ services:
   redis-server: 
     image: redis
   node-app:
-    build: .
+    image: hn0402/devops_final_docker
     ports:
       - "3000:3000"
     restart: always
