@@ -3,19 +3,28 @@ const bodyParser = require('body-parser')
 const exphbs = require('express-handlebars');
 const redis = require('redis');
 
-//Init app 
-const app = express()
-// Setting port
-const port = process.env.PORT || 3000
+// //Init app 
+// const app = express()
+// // Setting port
+// const port = process.env.PORT || 3000
+// const redis_port = process.env.port || 6379
 
-// const client = require('./dbClient')
-// client.on("error", (err) => {
-//   console.error(err)
-// })
+const client = require('./dbClient')
+client.on("error", (err) => {
+  console.error(err)
+})
 
 const client = redis.createClient({
     host: 'redis-server',
-    port: 6379
+    port: 6379,
+    password: "redis",
+    retry_strategy: () => {
+        return new Error("Retry time exhausted")
+    }
+})
+
+client.on("error", (err) => {
+    console.log(err);
 })
 
 //Body-parser
