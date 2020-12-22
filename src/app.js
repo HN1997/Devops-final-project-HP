@@ -1,15 +1,21 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const exphbs = require('express-handlebars');
+const redis = require('redis');
 
 //Init app 
 const app = express()
 // Setting port
 const port = process.env.PORT || 3000
 
-const client = require('./dbClient')
-client.on("error", (err) => {
-  console.error(err)
+// const client = require('./dbClient')
+// client.on("error", (err) => {
+//   console.error(err)
+// })
+
+const client = redis.createClient({
+    host: 'redis-server',
+    port: 6379
 })
 
 //Body-parser
