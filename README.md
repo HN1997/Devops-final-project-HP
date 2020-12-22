@@ -18,7 +18,7 @@
 * We have a .dockerignore to ignore all unnecessary files
 
 5. Make container orchestration using Docker Compose 
-* We added docker-compose.yml file which allows us to start our application directly in a container, just type this command (assuming docker-compose is installed) : ```docker-compose up```
+* We added docker-compose.yml file which allows us to start our application directly in a container
 
 ## 2 - Instructions
 1. Installation
