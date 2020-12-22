@@ -45,12 +45,12 @@
   ```
   npm start
   ```
-  In the app, you can add a user, find a user, update and delete a user (not beautiful but you can easily understand how to perform those CRUD operations)
+  Now go to `localhost:3000`. In the app, you can add a user, find a user, update and delete a user (not beautiful but you can easily understand how to perform those CRUD operations)
   * You can run the same application with the command:
   ```
   docker-compose up --build
   ```
-  And now open your web browser and go to [localhost:4001](localhost:4001)
+  And now open your web browser and go to `localhost:3000`.
 
 ## 3 - All the necessary links with the platforms and tools integrated:
 
