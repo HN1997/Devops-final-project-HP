@@ -12,6 +12,10 @@
 * We have used Travis CI which is building successfully our app (.travis.yml) each time we push to the repository.
 * We have used Heroku which deploys our app (and put the reference in .travis.yml) after Travis run successfully.
 
+3. Attempt to set the the application with vagrant coupled with ansible
+* We tried multiple things to make it work but in the end either have redis running on the provisionned VM or the application. But never both at the same time.
+* Please see in the ansible folder for more precision
+
 4. Build Docker image of your application
 * We have a Dockerfile for building the project. This is pushed to docker hub and will be pulled and executed in docker-compose file.
 * The image is pushed to Docker Hub with the command : ```docker push hn0402/devops_final_docker```
