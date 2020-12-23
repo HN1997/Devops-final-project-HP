@@ -26,6 +26,12 @@
   * devops-final-docker-pvc.yaml to create a PersistentVolumeClaim 
   * deployment.yaml which will create one deployment for our application, one pod for redis associated with the volumes, one service for our application. 
 
+7. Make a service mesh using Istio
+* Not done. We tried to deploy the application with Istio, we created a istio-gateway.yaml file but it is not working.
+
+8. Describe your project in the `README.md` file
+* Done
+
 ## 2 - Instructions
 1. Installation
   * [Install NodeJS](https://nodejs.org/en/download/)

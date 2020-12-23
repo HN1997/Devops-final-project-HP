@@ -4,3 +4,9 @@ CHANGELOG.md
 node_modules
 .travis.yml
 README.md
+k8s
+.eslintignore
+.eslintrc.json
+istio-gateway.yaml
+Procfile
+README.md 
