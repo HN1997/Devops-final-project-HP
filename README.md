@@ -24,7 +24,7 @@
 * We have 3 files in /k8s : 
   * devops-final-docker-pv.yaml to create a PersistentVolume
   * devops-final-docker-pvc.yaml to create a PersistentVolumeClaim 
-  * deployment.yaml which will create one deployment with for our application, one pod for redis associated with the volumes, one service for our application. 
+  * deployment.yaml which will create one deployment for our application, one pod for redis associated with the volumes, one service for our application. 
 
 ## 2 - Instructions
 1. Installation
