@@ -20,6 +20,12 @@
 5. Make container orchestration using Docker Compose 
 * We added docker-compose.yml file which allows us to start our application directly in a container
 
+6. Make container orchestration using Kubernetes 
+* We have 3 files in /k8s : 
+  * devops-final-docker-pv.yaml to create a PersistentVolume
+  * devops-final-docker-pvc.yaml to create a PersistentVolumeClaim 
+  * deployment.yaml which will create one deployment with for our application, one pod for redis associated with the volumes, one service for our application. 
+
 ## 2 - Instructions
 1. Installation
   * [Install NodeJS](https://nodejs.org/en/download/)
@@ -39,18 +45,27 @@
   docker build -t hn0402/devops_final_docker .
   ```
   Now, you can check that the image has been successfully built by running ```docker images```
+  * [Install Kubernetes cluster using Minikube](https://www.youtube.com/watch?v=bhBSlnQcq2k&t=12498s)
+  Now, to set up the application in kubernetes, run those commands:
+  ```
+  kubectl apply -f devops-final-docker-pv.yaml
+  kubectl apply -f devops-final-docker-pvc.yaml
+  kubectl apply -f deployment.yaml
+  ```
 
 2. Usage and Testing
-  * In the root directory of the application, you can run : 
+  * The application in a terminal : in the root directory of the application, you can run
   ```
   npm start
   ```
   Now go to `localhost:3000`. In the app, you can add a user, find a user, update and delete a user (not beautiful but you can easily understand how to perform those CRUD operations)
-  * You can run the same application with the command:
+  * The application with docker-compose : You can run the same application with the command
   ```
   docker-compose up --build
   ```
   And now open your web browser and go to `localhost:3000`.
+  * The application with kubernetes : run this command and the application will open in your default web browser:
+  ```minikube service devops-final-docker-service```
 
 ## 3 - All the necessary links with the platforms and tools integrated:
 

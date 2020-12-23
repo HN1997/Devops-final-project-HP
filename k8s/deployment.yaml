@@ -1,0 +1,65 @@
+apiVersion: apps/v1 
+kind: Deployment 
+metadata: 
+  name: devops-final-docker-deployment
+spec: 
+  selector: 
+    matchLabels: 
+      app: devops-final-docker 
+  replicas: 1 
+  template:
+    metadata: 
+      labels: 
+        app: devops-final-docker
+    spec: 
+      containers: 
+      - name: devops-final-docker
+        image: hn0402/devops_final_docker:latest
+        env:
+        - name: IAMDOCKER
+          value: "1"
+        ports: 
+        - containerPort: 3000 
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+--- 
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: redis-server
+spec: 
+  containers: 
+    - 
+      image: redis:latest
+      name: redis-server
+      ports: 
+        - 
+          containerPort: 6379
+          protocol: TCP
+      volumeMounts: 
+        - 
+          mountPath: /data/db
+          name: redis-data
+  volumes: 
+    - 
+      name: redis-data
+      persistentVolumeClaim: 
+        claimName: devops-final-docker-pvc
+---
+kind: Service 
+apiVersion: v1 
+metadata: 
+  name: devops-final-docker-service
+spec: 
+  selector: 
+    app: devops-final-docker 
+  ports: 
+  - protocol: TCP 
+    port: 3000 
+    targetPort: 3000 
+  type: LoadBalancer
